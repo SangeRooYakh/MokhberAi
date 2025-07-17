@@ -12,8 +12,8 @@ OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
 
 # 2. OPENROUTER APP IDENTIFICATION: Required by the API.
 #    You can use your GitHub repo URL or any other URL you own.
-YOUR_SITE_URL = "https://github.com/YOUR_USERNAME/YOUR_REPO_NAME" # CHANGE THIS
-YOUR_APP_NAME = "Farsi Science Telegram Bot" # Or any name you like
+YOUR_SITE_URL = "https://github.com/SangeRooYakh/MokhberAi"
+YOUR_APP_NAME = "Farsi Science News by AI" 
 
 # 3. SOURCE LIST: Easily extendable list of sources.
 #    Each source has a URL, a Farsi category, and an English hashtag.
@@ -171,7 +171,7 @@ def send_to_telegram(message):
 # --- Main Execution Logic ---
 
 def process_feeds():
-    """Main function to run the bot's logic."""
+    """Main function to run the logic."""
     posted_links = load_posted_links()
     new_links_found = False
 
