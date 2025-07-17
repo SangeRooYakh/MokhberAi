@@ -1,0 +1,38 @@
+name: AI Science News Poster for Telegram
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Updated to latest version
+
+      - name: Set up Python
+        uses: actions/setup-python@v5 # Updated to latest version
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies from requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the AI bot script
+        # Pass all required secrets as environment variables to the script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python bot.py
+
+      - name: Commit and push posted_links.txt if it changed
+        # This action is smart and will only commit if the file has new content.
+        uses: stefanzweifel/git-auto-commit-action@v5 # Updated to latest version
+        with:
+          commit_message: "History: Update list of posted article links"
+          file_pattern: "posted_links.txt"
