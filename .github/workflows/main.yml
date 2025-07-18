@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-bot:
+  run-telai:
     runs-on: ubuntu-latest
     permissions:
       contents: write
