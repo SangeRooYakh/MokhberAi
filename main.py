@@ -112,7 +112,7 @@ def get_ai_insights_from_openrouter(text_content):
                 "X-Title": YOUR_APP_NAME,
             },
             data=json.dumps({
-                "model": "google/gemini-2.0-flash-exp:free", # A great, fast, free model
+                "model": "google/gemma-3-27b-it:free", # A great, fast, free model
                 "messages": [{"role": "user", "content": prompt}],
                 "response_format": {"type": "json_object"}, # This forces the model to output JSON
             })
