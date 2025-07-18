@@ -1,4 +1,4 @@
-name: AI Science News Poster for Telegram
+name: AI Science News for Telegram
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-telai:
+  run-bot:
     runs-on: ubuntu-latest
     permissions:
       contents: write
